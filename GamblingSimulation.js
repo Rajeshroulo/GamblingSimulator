@@ -77,7 +77,7 @@ class GamblingSimulation {
       })
       .then((trials)=>{
         console.log(trials);
-        return this.outcome();
+        return this.outcome(this.stake,this.bet,this.goal,this.trials);
       })
 
       .catch(error => { 
@@ -93,6 +93,7 @@ class GamblingSimulation {
                     return reject("Please enter valid stake")
                 }
                 else{
+                    this.stake=stake;
                     return resolve(stake);
                 }
             });
@@ -107,11 +108,11 @@ class GamblingSimulation {
                     return reject("Please enter valid bet")
                 }
                 else{
+                    this.bet=bet;
                     return resolve(bet);
                 }
             });
-        });  
-    
+        });      
     }
 
     goalValue(){
@@ -122,6 +123,7 @@ class GamblingSimulation {
                     return reject("Please enter valid goal")
                 }
                 else{
+                    this.goal=goal;
                     return resolve(goal);
                 }
             });
@@ -137,6 +139,7 @@ class GamblingSimulation {
                     return reject("Please enter valid trials")
                 }
                 else{
+                    this.trials=trials;
                     return resolve(trials);
                 }
             });
